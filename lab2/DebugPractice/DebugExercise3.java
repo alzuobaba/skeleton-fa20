@@ -12,6 +12,9 @@ public class DebugExercise3 {
             if (foodType.equals("turnip")) {
                 int newTotal = totalTurnips + numAvailable;
                 totalTurnips = newTotal;
+                if(totalTurnips <0){
+                    System.out.println("");
+                }
             }
         }
         return totalTurnips;

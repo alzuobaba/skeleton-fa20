@@ -1,4 +1,5 @@
 import java.util.Formatter;
+import java.util.List;
 
 /**
  * Scheme-like pairs that can be used to form a list of integers.
@@ -81,7 +82,14 @@ public class IntList {
 
     public static IntList dcatenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+        if (A == null)
+            return B;
+        IntList apointer = A;
+        while (apointer.rest !=null){
+            apointer = apointer.rest;
+        }
+        apointer.rest = B;
+        return A;
     }
 
     /**
@@ -90,7 +98,20 @@ public class IntList {
      */
     public static IntList catenate(IntList A, IntList B) {
         //TODO:  fill in method
-        return null;
+//        if (A == null){
+//            return B;
+//        }
+        IntList apointer = A;
+        IntList copy_a = new IntList(0, null);
+        IntList copy_a_head = copy_a;
+        while (apointer != null){
+            copy_a.rest = new IntList(apointer.first, null);
+            copy_a = copy_a.rest;
+            apointer = apointer.rest;
+        }
+        copy_a.rest = B;
+
+       return copy_a_head.rest;
     }
 
 
